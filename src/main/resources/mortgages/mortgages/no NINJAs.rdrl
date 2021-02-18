@@ -27,6 +27,6 @@ rule "no NINJAs"
 		not (IncomeSource( )) 
 	then
 		app.setApproved( false );
-		app.setExplanation( "no NINJAs" );
+		app.setExplanation( "no broke NINJAs" );
 		retract( app );
 end
