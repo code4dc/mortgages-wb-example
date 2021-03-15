@@ -16,11 +16,17 @@
 
 package mortgages.mortgages
 
-rule 'Dummy rule'
+import mortgages.mortgages.LoanApplication
+import mortgages.mortgages.IncomeSource
 
-when
-  //conditions
-then
-  //actions
-
+rule "no NINJAs here"
+	salience 10
+	dialect "mvel"
+	when
+		app : LoanApplication(approved == false )
+		not (IncomeSource( ))
+	then
+		app.setApproved( false );
+		app.setExplanation( "no broke NINJAs" );
+		retract( app );
 end
