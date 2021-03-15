@@ -24,7 +24,7 @@ rule "Underage"
 	dialect "mvel"
 	when
 		application : LoanApplication( )
-		Applicant( age < "21" )
+		Applicant( age < "20" )
 	then
 		application.setApproved( false );
 		application.setExplanation( "Underage" );
